@@ -38,7 +38,7 @@ function App() {
           <img src={BannerMB} alt="" />
         </picture>
       </header>
-      <h1></h1>
+      <h1>Static Jobs Listing Master</h1>
       {tags?.length > 0 && (
         <section className="container">
           <Filter tags={tags} clearTags={clearTags} selectTags={selectTags} />
