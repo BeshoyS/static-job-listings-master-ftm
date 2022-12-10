@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import BannerDT from "./assets/images/bg-header-desktop.svg";
 import BannerMB from "./assets/images/bg-header-mobile.svg";
 import Filter from "./components/Filter/Filter";
@@ -32,23 +32,23 @@ function App() {
 
   return (
     <div className="App">
-      <div className="banner">
+      <header className="banner">
         <picture>
           <source srcSet={BannerDT} media="(min-width: 900px)" />
           <img src={BannerMB} alt="" />
         </picture>
-      </div>
+      </header>
       <h1></h1>
       {tags?.length > 0 && (
-        <div className="container">
+        <section className="container">
           <Filter tags={tags} clearTags={clearTags} selectTags={selectTags} />
-        </div>
+        </section>
       )}
-      <div className="container listings">
+      <main className="container listings">
         {filteredListing?.map((obj) => (
           <ListingCard key={obj.id} listing={obj} selectTags={selectTags} />
         ))}
-      </div>
+      </main>
     </div>
   );
 }

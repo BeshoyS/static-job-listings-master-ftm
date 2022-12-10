@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--clr-desaturateddarkcyan);
+  background-color: hsl(var(--clr-white));
   box-shadow: var(--box-shadow);
   padding: 2.5em 1.6em 1em;
   margin-block: 2.5em;

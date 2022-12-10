@@ -3,7 +3,7 @@ import removeBtn from "../../assets/images/icon-remove.svg";
 
 const Filter = ({ tags, clearTags, selectTags }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.tags}>
         {tags?.map((tag, index) => (
           <button key={index} className={styles["tag-btn"]}>
@@ -20,7 +20,7 @@ const Filter = ({ tags, clearTags, selectTags }) => {
       <button onClick={clearTags} className={styles["clear-btn"]}>
         Clear
       </button>
-    </div>
+    </section>
   );
 };
 

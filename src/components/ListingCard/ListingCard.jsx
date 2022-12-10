@@ -17,7 +17,7 @@ const ListingCard = ({ listing, selectTags }) => {
   } = listing;
 
   return (
-    <div className={`${styles.container}`}>
+    <section className={`${styles.container}`}>
       {featured && <div className={styles["container-featured"]}></div>}
       <div className={styles["listing-details"]}>
         <div className={styles.logowrapper}>
@@ -51,7 +51,7 @@ const ListingCard = ({ listing, selectTags }) => {
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
