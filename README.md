@@ -1,5 +1,7 @@
 # Frontend Mentor - Job listings with filtering
 
+### Live Demo - https://beshoys.github.io/static-job-listings-master-ftm/
+
 ![Design preview for the Job listings with filtering coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
