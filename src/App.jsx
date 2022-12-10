@@ -1,9 +1,35 @@
-import ListingCard from "./components/ListingCard/ListingCard";
+import { useEffect, useMemo, useState } from "react";
 import BannerDT from "./assets/images/bg-header-desktop.svg";
 import BannerMB from "./assets/images/bg-header-mobile.svg";
-import data from "./data/data.json";
+import Filter from "./components/Filter/Filter";
+import ListingCard from "./components/ListingCard/ListingCard";
+import dataList from "./data/data.json";
 
 function App() {
+  const [data, setData] = useState(dataList);
+  const [tags, setTags] = useState([]);
+
+  const filteredListing = useMemo(() => {
+    return tags.length > 0
+      ? data.filter(({ role, level, languages, tools }) => {
+          const filtered = [...languages, ...tools, role, level].filter((r) =>
+            tags.includes(r)
+          );
+          return filtered.length > 0;
+        })
+      : data;
+  }, [tags, data]);
+
+  function clearTags() {
+    setTags([]);
+  }
+
+  function selectTags(tag) {
+    tags.includes(tag)
+      ? setTags(tags.filter((el) => el !== tag))
+      : setTags([...tags, tag]);
+  }
+
   return (
     <div className="App">
       <div className="banner">
@@ -13,9 +39,14 @@ function App() {
         </picture>
       </div>
       <h1></h1>
+      {tags?.length > 0 && (
+        <div className="container">
+          <Filter tags={tags} clearTags={clearTags} selectTags={selectTags} />
+        </div>
+      )}
       <div className="container listings">
-        {data?.map((obj) => (
-          <ListingCard key={obj.id} listing={obj} />
+        {filteredListing?.map((obj) => (
+          <ListingCard key={obj.id} listing={obj} selectTags={selectTags} />
         ))}
       </div>
     </div>

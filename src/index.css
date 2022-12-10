@@ -8,6 +8,7 @@
   --clr-white: 0, 0%, 100%;
   --fsz: 15px;
   --font-family: "League Spartan", sans-serif;
+  --box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.2);
 }
 
 *,
@@ -21,6 +22,10 @@
 html {
   font-family: var(--font-family);
   font-size: var(--fsz);
+}
+
+body {
+  background-color: hsl(var(--clr-bg-lightcyan));
 }
 
 img {
@@ -40,6 +45,12 @@ a:focus {
   text-decoration: none;
 }
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* Global Styles */
 .banner {
   width: 100%;
@@ -50,5 +61,8 @@ a:focus {
 .container {
   width: min(90%, 75em);
   margin: 0 auto;
-  padding: 3em 0;
+}
+
+.listings {
+  padding: 1em 0;
 }

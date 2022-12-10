@@ -1,10 +1,7 @@
-import React from "react";
-import data from "../../data/data.json";
 import styles from "./ListingCard.module.css";
 
-const ListingCard = ({ listing }) => {
+const ListingCard = ({ listing, selectTags }) => {
   const {
-    id,
     company,
     logo,
     new: newBadge,
@@ -21,7 +18,7 @@ const ListingCard = ({ listing }) => {
 
   return (
     <div className={`${styles.container}`}>
-      {featured && <div className={styles["container--featured"]}></div>}
+      {featured && <div className={styles["container-featured"]}></div>}
       <div className={styles["listing-details"]}>
         <div className={styles.logowrapper}>
           <img src={logo} alt="" />
@@ -45,7 +42,11 @@ const ListingCard = ({ listing }) => {
       </div>
       <div className={styles.tags}>
         {[role, level, ...languages, ...tools].map((tag, index) => (
-          <button key={index} className={styles.btn}>
+          <button
+            key={index}
+            onClick={() => selectTags(tag)}
+            className={styles.btn}
+          >
             {tag}
           </button>
         ))}
